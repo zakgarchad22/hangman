@@ -1,17 +1,23 @@
 import React from 'react';
 
-const Solution = () => {
-  const underscores = Array(4).fill('_')
+import './solution.css'
 
+const Solution = ({guessedLetters  , word}) => 
+{
+  
   return (
     <div>
-     
-      {underscores.map((underscore, index) => (
-        <span key={index}> {underscore} </span>
-      ))}
-       <div><em>Your ideal mood when coding.</em></div>
+      {word.split('').map((letter, index) => 
+      {
+        const isGuessed = guessedLetters.includes(letter)
+        return (
+          <span key={index} className={isGuessed ? "letter" : "blankSquare"}>
+            {isGuessed ? letter : ""}
+          </span>
+        )
+      })}
     </div>
   )
 }
 
-export default Solution
+export default Solution;

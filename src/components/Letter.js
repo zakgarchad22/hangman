@@ -1,15 +1,16 @@
 import React from 'react';
 
 
-const Letter = () => 
+const Letter = ({letter , active, onLetterClick}) => 
 {
-  return ( 
-  <div>
 
-  <div>Available Letters</div>
-  <span>A</span> 
-
-  </div>
+  const style = {color: active ? "gray" : "black"}
+  return (
+  
+    <span style={style} onClick = {onLetterClick}> 
+      {letter}
+    </span>
+  
   )
  
 }
